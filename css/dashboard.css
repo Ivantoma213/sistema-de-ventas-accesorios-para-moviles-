@@ -1,0 +1,348 @@
+/* Dashboard Container */
+.dashboard-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.dashboard-header h1 {
+    font-size: 2.5em;
+    font-weight: 300;
+    margin-bottom: 10px;
+    color: var(--color-text-primary);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-header p {
+    color: var(--color-text-secondary);
+    font-size: 1.1em;
+    margin: 0;
+}
+
+/* Grid de métricas */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+/* Metric Cards */
+.metric-card {
+    background: var(--color-bg-card);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px var(--color-shadow);
+    transition: var(--transition-normal);
+    border: 1px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent-blue), var(--color-accent-purple), var(--color-accent-green));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.metric-card:hover::before {
+    opacity: 1;
+}
+
+.metric-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px var(--color-shadow-hover);
+}
+
+.metric-card-inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.metric-icon {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8em;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+}
+
+.metric-content {
+    flex: 1;
+}
+
+.metric-value {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 5px;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.metric-label {
+    font-size: 1.1em;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.metric-subtext {
+    font-size: 0.9em;
+    color: var(--color-text-muted);
+    margin-top: 5px;
+}
+
+/* Progress bar styling */
+.progress-container {
+    background: var(--color-border);
+    border-radius: 10px;
+    height: 8px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-accent-green), var(--color-accent-blue));
+    border-radius: 10px;
+    transition: width 1s ease-in-out;
+}
+
+/* Alerts card specific styling */
+.alerts-card .metric-value {
+    color: var(--color-accent-red);
+}
+
+.alerts-list {
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.alerts-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.alerts-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    font-size: 0.9em;
+}
+
+.alerts-list li:last-child {
+    border-bottom: none;
+}
+
+/* Quick Actions Section */
+.quick-actions {
+    margin-top: 50px;
+}
+
+.quick-actions h2 {
+    text-align: center;
+    font-size: 2em;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: var(--color-text-primary);
+}
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.action-card {
+    background: var(--color-bg-card);
+    border-radius: 16px;
+    padding: 25px;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    transition: var(--transition-normal);
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.action-card:hover::before {
+    left: 100%;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px var(--color-shadow-hover);
+    border-color: var(--color-accent-blue);
+}
+
+.action-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: white;
+    box-shadow: 0 6px 15px rgba(0, 212, 255, 0.3);
+}
+
+.action-content h3 {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    color: var(--color-text-primary);
+}
+
+.action-content p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 0.95em;
+}
+
+.no-access {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    background: var(--color-bg-card);
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+}
+
+.no-access i {
+    font-size: 3em;
+    color: var(--color-text-muted);
+    margin-bottom: 15px;
+}
+
+.no-access p {
+    color: var(--color-text-secondary);
+    font-size: 1.1em;
+    margin: 0;
+}
+
+/* Responsive Design for Dashboard */
+@media (max-width: 1024px) {
+    .metrics-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .metric-card {
+        padding: 25px;
+    }
+
+    .metric-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5em;
+    }
+
+    .metric-value {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 15px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 2em;
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .metric-card-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .metric-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3em;
+    }
+
+    .metric-value {
+        font-size: 1.8em;
+    }
+
+    .actions-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .action-card {
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .action-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-header h1 {
+        font-size: 1.8em;
+    }
+
+    .metric-card {
+        padding: 20px;
+    }
+
+    .metric-value {
+        font-size: 1.5em;
+    }
+
+    .quick-actions h2 {
+        font-size: 1.6em;
+    }
+}

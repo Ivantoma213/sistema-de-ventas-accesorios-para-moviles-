@@ -1,0 +1,406 @@
+/* Estilos específicos para el módulo de Reportes */
+
+/* Contenedor principal de reportes */
+.reportes-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header de reportes */
+.reportes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.reportes-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.reportes-title i {
+    font-size: 2.5em;
+    color: var(--color-accent-blue);
+}
+
+.reportes-title h1 {
+    font-size: 2.5em;
+    font-weight: 300;
+    margin: 0;
+    color: var(--color-text-primary);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Filtros de reportes */
+.filtros-reportes {
+    background: var(--color-bg-card);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 25px var(--color-shadow);
+    border: 1px solid var(--color-border);
+}
+
+.filtros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.filtro-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filtro-item label {
+    font-weight: 600;
+    color: #000000;
+    font-size: 0.9em;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.filtro-item input,
+.filtro-item select {
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-bg-main);
+    color: var(--color-text-primary);
+    font-size: 0.9em;
+    transition: var(--transition-fast);
+}
+
+.filtro-item input:focus,
+.filtro-item select:focus {
+    outline: none;
+    border-color: var(--color-accent-blue);
+    box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.1);
+}
+
+.btn-generar-reporte {
+    background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple));
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    align-self: flex-end;
+    margin-top: 10px;
+}
+
+.btn-generar-reporte:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+}
+
+.btn-generar-reporte i {
+    margin-right: 8px;
+}
+
+/* Grid de reportes */
+.reportes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+/* Card de reporte */
+.reporte-card {
+    background: var(--color-bg-card);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 8px 25px var(--color-shadow);
+    border: 1px solid var(--color-border);
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.reporte-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent-blue), var(--color-accent-green), var(--color-accent-purple));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.reporte-card:hover::before {
+    opacity: 1;
+}
+
+.reporte-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px var(--color-shadow-hover);
+}
+
+.reporte-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.reporte-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: white;
+    flex-shrink: 0;
+}
+
+.reporte-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.reporte-info p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 0.9em;
+}
+
+.reporte-metricas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.metrica-item {
+    text-align: center;
+    padding: 15px;
+    background: var(--color-bg-main);
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+.metrica-valor {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--color-accent-green);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.metrica-label {
+    font-size: 0.85em;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.reporte-chart {
+    height: 250px;
+    position: relative;
+    margin-top: 20px;
+}
+
+.reporte-chart canvas {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Tabla de detalles del reporte */
+.reporte-detalles {
+    margin-top: 30px;
+}
+
+.detalles-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--color-shadow);
+}
+
+.detalles-table thead th {
+    background: var(--color-bg-sidebar);
+    color: var(--color-text-primary);
+    font-weight: 600;
+    padding: 15px 12px;
+    text-align: left;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.detalles-table tbody td {
+    padding: 12px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+}
+
+.detalles-table tbody tr:hover {
+    background: var(--color-hover);
+}
+
+/* Exportar reportes */
+.export-options {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+
+.btn-export {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-normal);
+    font-size: 0.9em;
+}
+
+.btn-export.pdf {
+    background: var(--color-accent-red);
+    color: white;
+}
+
+.btn-export.pdf:hover {
+    background: #e74c3c;
+    transform: translateY(-1px);
+}
+
+.btn-export.excel {
+    background: var(--color-accent-green);
+    color: white;
+}
+
+.btn-export.excel:hover {
+    background: #27ae60;
+    transform: translateY(-1px);
+}
+
+.btn-export i {
+    font-size: 1em;
+}
+
+/* Loading state para reportes */
+.reporte-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    color: var(--color-text-secondary);
+}
+
+.reporte-loading i {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: var(--color-accent-blue);
+    animation: spin 2s linear infinite;
+}
+
+.reporte-loading p {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+/* Empty state para reportes */
+.reporte-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--color-text-secondary);
+}
+
+.reporte-empty i {
+    font-size: 4em;
+    color: var(--color-text-muted);
+    margin-bottom: 20px;
+}
+
+.reporte-empty h3 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--color-text-primary);
+}
+
+.reporte-empty p {
+    margin-bottom: 25px;
+    font-size: 1em;
+}
+
+/* Responsive para reportes */
+@media (max-width: 1024px) {
+    .reportes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reportes-title h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .filtros-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reporte-metricas {
+        grid-template-columns: 1fr;
+    }
+
+    .export-options {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .detalles-table {
+        font-size: 0.9em;
+    }
+
+    .detalles-table th,
+    .detalles-table td {
+        padding: 8px 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .filtros-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reportes-title {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .reportes-title h1 {
+        font-size: 1.8em;
+    }
+
+    .reporte-header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
