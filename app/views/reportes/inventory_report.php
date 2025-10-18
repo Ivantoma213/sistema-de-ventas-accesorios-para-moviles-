@@ -1,25 +1,18 @@
-<?php require_once __DIR__ . '/layouts/header.php'; ?>
+<?php require_once __DIR__ . '/../layouts/header.php'; ?>
 
 <?php
 // Extraer variables del array de datos
 $movimientos = $movimientos ?? [];
 ?>
 
-<div class="page-container">
-    <div class="page-header">
-        <div class="page-title">
-            <i class="fas fa-warehouse"></i>
-            <h1>Reporte de Inventario</h1>
-        </div>
-        <div class="page-actions">
-            <a href="/sistema/?route=reportes" class="action-btn secondary">
-                <i class="fas fa-arrow-left"></i>
-                Volver a Reportes
-            </a>
-        </div>
+<div class="main-content">
+    <div class="page-navigation">
+        <a href="/sistema/?route=reportes" class="nav-back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Volver a Reportes
+        </a>
     </div>
-
-    <div class="content-grid">
+    <h1>Reporte de Inventario</h1>
         <!-- Filtros de fecha -->
         <div class="filter-card">
             <div class="filter-header">
@@ -95,32 +88,36 @@ $movimientos = $movimientos ?? [];
                                     <th>Tipo</th>
                                     <th>Cantidad</th>
                                     <th>Producto</th>
+                                    <th>Motivo</th>
+                                    <th>Usuario</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($movimientos as $mov): ?>
                                     <tr>
-                                        <td>
+                                        <td data-label="ID">
                                             <div class="id-badge">#<?php echo $mov['id']; ?></div>
                                         </td>
-                                        <td>
+                                        <td data-label="Fecha">
                                             <div class="date-info">
                                                 <i class="fas fa-calendar"></i>
                                                 <?php echo date('d/m/Y H:i', strtotime($mov['fecha'])); ?>
                                             </div>
                                         </td>
-                                        <td>
+                                        <td data-label="Tipo">
                                             <span class="movement-type <?php echo $mov['tipo']; ?>">
                                                 <i class="fas fa-<?php echo $mov['tipo'] === 'entrada' ? 'plus-circle' : 'minus-circle'; ?>"></i>
                                                 <?php echo ucfirst($mov['tipo']); ?>
                                             </span>
                                         </td>
-                                        <td>
+                                        <td data-label="Cantidad">
                                             <span class="quantity <?php echo $mov['tipo']; ?>">
                                                 <?php echo $mov['tipo'] === 'entrada' ? '+' : '-'; ?><?php echo $mov['cantidad']; ?>
                                             </span>
                                         </td>
-                                        <td><?php echo htmlspecialchars($mov['nombre_producto'] ?? 'Producto no encontrado'); ?></td>
+                                        <td data-label="Producto"><?php echo htmlspecialchars($mov['nombre_producto'] ?? 'Producto no encontrado'); ?></td>
+                                        <td data-label="Motivo"><?php echo htmlspecialchars($mov['motivo'] ?? 'N/A'); ?></td>
+                                        <td data-label="Usuario"><?php echo htmlspecialchars($mov['usuario_nombre'] ?? 'Usuario #' . $mov['id_usuario']); ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -142,40 +139,4 @@ $movimientos = $movimientos ?? [];
     </div>
 </div>
 
-<style>
-    .movement-type {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 6px 12px;
-        border-radius: 20px;
-        font-size: 0.8em;
-        font-weight: 600;
-        text-transform: capitalize;
-    }
-
-    .movement-type.entrada {
-        background: rgba(0, 255, 136, 0.2);
-        color: var(--color-accent-green);
-    }
-
-    .movement-type.salida {
-        background: rgba(255, 71, 87, 0.2);
-        color: var(--color-accent-red);
-    }
-
-    .quantity {
-        font-weight: 600;
-        font-size: 1.1em;
-    }
-
-    .quantity.entrada {
-        color: var(--color-accent-green);
-    }
-
-    .quantity.salida {
-        color: var(--color-accent-red);
-    }
-</style>
-
-<?php require_once __DIR__ . '/layouts/footer.php'; ?>
+<?php require_once __DIR__ . '/../layouts/footer.php'; ?>

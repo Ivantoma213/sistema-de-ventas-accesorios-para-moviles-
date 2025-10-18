@@ -18,21 +18,21 @@ class ReporteController extends Controller {
         $fechaInicio = $_GET['inicio'] ?? date('Y-m-d', strtotime('-30 days'));
         $fechaFin = $_GET['fin'] ?? date('Y-m-d');
         $ventas = $this->reporteModel->ventasPorPeriodo($fechaInicio, $fechaFin);
-        $this->view('sales_report', ['ventas' => $ventas]);
+        $this->view('reportes/sales_report', ['ventas' => $ventas]);
     }
 
     public function inventoryReport() {
         $fechaInicio = $_GET['inicio'] ?? date('Y-m-d', strtotime('-30 days'));
         $fechaFin = $_GET['fin'] ?? date('Y-m-d');
         $movimientos = $this->reporteModel->movimientosInventario($fechaInicio, $fechaFin);
-        $this->view('inventory_report', ['movimientos' => $movimientos]);
+        $this->view('reportes/inventory_report', ['movimientos' => $movimientos]);
     }
 
     public function profitReport() {
         $fechaInicio = $_GET['inicio'] ?? date('Y-m-d', strtotime('-30 days'));
         $fechaFin = $_GET['fin'] ?? date('Y-m-d');
         $ganancias = $this->reporteModel->ganancias($fechaInicio, $fechaFin);
-        $this->view('profit_report', ['ganancias' => $ganancias]);
+        $this->view('reportes/profit_report', ['ganancias' => $ganancias]);
     }
 }
 ?>

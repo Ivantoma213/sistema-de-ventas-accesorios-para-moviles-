@@ -25,9 +25,10 @@ class ReporteModel {
 
     public function movimientosInventario($fechaInicio, $fechaFin) {
         $stmt = $this->db->prepare("
-            SELECT mi.*, p.nombre as nombre_producto, mi.tipo_movimiento as tipo
+            SELECT mi.*, p.nombre as nombre_producto, mi.tipo_movimiento as tipo, u.nombre as usuario_nombre
             FROM movimientos_inventario mi
             LEFT JOIN productos p ON mi.id_producto = p.id
+            LEFT JOIN usuarios u ON mi.id_usuario = u.id
             WHERE mi.fecha BETWEEN :inicio AND :fin
             ORDER BY mi.fecha DESC
         ");

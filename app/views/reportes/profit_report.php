@@ -1,25 +1,18 @@
-<?php require_once __DIR__ . '/layouts/header.php'; ?>
+<?php require_once __DIR__ . '/../layouts/header.php'; ?>
 
 <?php
 // Extraer variables del array de datos
 $ganancias = $ganancias ?? [];
 ?>
 
-<div class="page-container">
-    <div class="page-header">
-        <div class="page-title">
-            <i class="fas fa-dollar-sign"></i>
-            <h1>Reporte de Ganancias</h1>
-        </div>
-        <div class="page-actions">
-            <a href="/sistema/?route=reportes" class="action-btn secondary">
-                <i class="fas fa-arrow-left"></i>
-                Volver a Reportes
-            </a>
-        </div>
+<div class="main-content">
+    <div class="page-navigation">
+        <a href="/sistema/?route=reportes" class="nav-back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Volver a Reportes
+        </a>
     </div>
-
-    <div class="content-grid">
+    <h1>Reporte de Ganancias</h1>
         <!-- Filtros de fecha -->
         <div class="filter-card">
             <div class="filter-header">
@@ -83,7 +76,6 @@ $ganancias = $ganancias ?? [];
                                 ?>
                             </div>
                             <div class="stat-label">Rentabilidad</div>
-                        </div>
                     </div>
                 </div>
 
@@ -149,36 +141,4 @@ $ganancias = $ganancias ?? [];
     </div>
 </div>
 
-<style>
-    .profit-breakdown {
-        margin-top: 20px;
-    }
-
-    .breakdown-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 0;
-        border-bottom: 1px solid var(--color-border);
-    }
-
-    .breakdown-item:last-child {
-        border-bottom: none;
-    }
-
-    .breakdown-item .label {
-        font-weight: 500;
-        color: var(--color-text-secondary);
-    }
-
-    .breakdown-item .value {
-        font-weight: 600;
-        color: var(--color-text-primary);
-    }
-
-    .profit-positive {
-        color: var(--color-accent-green) !important;
-    }
-</style>
-
-<?php require_once __DIR__ . '/layouts/footer.php'; ?>
+<?php require_once __DIR__ . '/../layouts/footer.php'; ?>

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Inventario - Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/sistema/css/general.css?v=1.0">
-    <link rel="stylesheet" href="/sistema/css/login.css?v=1.0">
+    <link rel="stylesheet" href="/css/general.css?v=1.0">
+    <link rel="stylesheet" href="/css/login.css?v=1.0">
 </head>
 <body class="login-page">
     <div class="floating-shapes">

@@ -1,25 +1,18 @@
-<?php require_once __DIR__ . '/layouts/header.php'; ?>
+<?php require_once __DIR__ . '/../layouts/header.php'; ?>
 
 <?php
 // Extraer variables del array de datos
 $ventas = $ventas ?? [];
 ?>
 
-<div class="page-container">
-    <div class="page-header">
-        <div class="page-title">
-            <i class="fas fa-chart-line"></i>
-            <h1>Reporte de Ventas</h1>
-        </div>
-        <div class="page-actions">
-            <a href="/sistema/?route=reportes" class="action-btn secondary">
-                <i class="fas fa-arrow-left"></i>
-                Volver a Reportes
-            </a>
-        </div>
+<div class="main-content">
+    <div class="page-navigation">
+        <a href="/sistema/?route=reportes" class="nav-back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Volver a Reportes
+        </a>
     </div>
-
-    <div class="content-grid">
+    <h1>Reporte de Ventas</h1>
         <!-- Filtros de fecha -->
         <div class="filter-card">
             <div class="filter-header">
@@ -77,7 +70,6 @@ $ventas = $ventas ?? [];
                         <div class="stat-info">
                             <div class="stat-value">S/ <?php echo number_format(($ventas['total_ventas'] ?? 0) / max($ventas['total_transacciones'] ?? 1, 1), 2); ?></div>
                             <div class="stat-label">Promedio por Venta</div>
-                        </div>
                     </div>
                 </div>
 
@@ -137,124 +129,4 @@ $ventas = $ventas ?? [];
     </div>
 </div>
 
-<style>
-    .filter-card {
-        background: var(--color-bg-card);
-        border-radius: 16px;
-        padding: 25px;
-        box-shadow: 0 8px 25px var(--color-shadow);
-        border: 1px solid var(--color-border);
-    }
-
-    .filter-header {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 20px;
-    }
-
-    .filter-header i {
-        color: var(--color-accent-blue);
-        font-size: 1.2em;
-    }
-
-    .filter-header h3 {
-        margin: 0;
-        color: var(--color-text-primary);
-    }
-
-    .filter-form {
-        margin-top: 15px;
-    }
-
-    .form-row {
-        display: flex;
-        gap: 20px;
-        align-items: end;
-    }
-
-    .form-group {
-        flex: 1;
-    }
-
-    .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        color: var(--color-text-secondary);
-        font-weight: 500;
-    }
-
-    .form-group input {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid var(--color-border);
-        border-radius: 8px;
-        background: var(--color-bg-main);
-        color: var(--color-text-primary);
-        font-size: 0.9em;
-    }
-
-    .form-group input:focus {
-        outline: none;
-        border-color: var(--color-accent-blue);
-        box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
-    }
-
-    .report-results {
-        display: grid;
-        gap: 30px;
-    }
-
-    .chart-container {
-        background: var(--color-bg-card);
-        border-radius: 16px;
-        padding: 25px;
-        box-shadow: 0 8px 25px var(--color-shadow);
-        border: 1px solid var(--color-border);
-    }
-
-    .chart-header {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 20px;
-    }
-
-    .chart-header i {
-        color: var(--color-accent-green);
-        font-size: 1.2em;
-    }
-
-    .chart-header h3 {
-        margin: 0;
-        color: var(--color-text-primary);
-    }
-
-    .chart-placeholder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 60px 20px;
-        text-align: center;
-        color: var(--color-text-secondary);
-    }
-
-    .chart-placeholder i {
-        font-size: 4em;
-        margin-bottom: 15px;
-        opacity: 0.5;
-    }
-
-    .chart-placeholder p {
-        margin: 5px 0;
-        font-size: 1.1em;
-    }
-
-    .chart-placeholder small {
-        color: var(--color-text-muted);
-        font-style: italic;
-    }
-</style>
-
-<?php require_once __DIR__ . '/layouts/footer.php'; ?>
+<?php require_once __DIR__ . '/../layouts/footer.php'; ?>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Inventario</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/sistema/css/general.css?v=1.2">
+    <link rel="stylesheet" href="/css/general.css?v=1.2">
     <?php
     $route = $_GET['route'] ?? 'dashboard/index';
     $routeParts = explode('/', $route);
@@ -14,24 +14,24 @@
     // Include specific CSS based on module
     switch ($module) {
         case 'dashboard':
-            echo '<link rel="stylesheet" href="/sistema/css/dashboard.css?v=1.2">';
+            echo '<link rel="stylesheet" href="/css/dashboard.css?v=1.2">';
             break;
         case 'inventario':
-            echo '<link rel="stylesheet" href="/sistema/css/inventario.css?v=1.2">';
-            echo '<link rel="stylesheet" href="/sistema/css/ventas.css?v=1.2">';
+            echo '<link rel="stylesheet" href="/css/inventario.css?v=1.2">';
+            echo '<link rel="stylesheet" href="/css/ventas.css?v=1.2">';
             break;
         case 'ventas':
-            echo '<link rel="stylesheet" href="/sistema/css/ventas.css?v=1.2">';
+            echo '<link rel="stylesheet" href="/css/ventas.css?v=1.2">';
             break;
         case 'reportes':
-            echo '<link rel="stylesheet" href="/sistema/css/reportes.css?v=1.2">';
+            echo '<link rel="stylesheet" href="/css/reportes.css?v=1.2">';
             break;
         case 'usuario':
-            echo '<link rel="stylesheet" href="/sistema/css/usuario.css?v=1.2">';
-            echo '<link rel="stylesheet" href="/sistema/css/ventas.css?v=1.2">';
+            echo '<link rel="stylesheet" href="/css/usuario.css?v=1.2">';
+            echo '<link rel="stylesheet" href="/css/ventas.css?v=1.2">';
             break;
         case 'auth':
-            echo '<link rel="stylesheet" href="/sistema/css/login.css?v=1.2">';
+            echo '<link rel="stylesheet" href="/css/login.css?v=1.2">';
             break;
     }
     ?>
